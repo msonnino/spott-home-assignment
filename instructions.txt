@@ -1,0 +1,4 @@
+From terminal:
+1. Run MongoDB
+2. Navigate to "server" directory and run "node server.js"
+3. Navigate to "products-editor" directory and run "npm run serve"
