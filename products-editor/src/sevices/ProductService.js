@@ -13,7 +13,7 @@ export default {
   getProducts () {
     return apiClient.get('/products')
   },
-  updateCogs (id) {
-    // update cogs for product with id
+  updateCogs (product) {
+    apiClient.post('/cogs', product)
   }
 }

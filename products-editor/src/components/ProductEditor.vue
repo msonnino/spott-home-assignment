@@ -20,12 +20,13 @@
             </select>
             <span>Selected: {{ currentProduct.cogs.manufacturingCountry }}</span>
             <br>
-            <input class="button" type="submit">
+            <input class="button" type="submit" value="Save Changes">
     </form>
 </template>
 
 <script>
 import CountriesList from './CountriesList.js'
+import ProductService from '../sevices/ProductService.js'
 
 export default {
   name: 'ProductEditor',
@@ -43,6 +44,7 @@ export default {
   },
   methods: {
     onSubmit () {
+      ProductService.updateCogs(this.currentProduct)
       console.log(this.currentProduct)
     }
   }

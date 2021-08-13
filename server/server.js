@@ -2,14 +2,15 @@ const express = require("express");
 const cors = require('cors');
 const mongoose = require("mongoose");
 
-
 const app = express();
 app.use(express.static("public"));
 app.use(cors());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 // ********** DB setup ********** //
 
-mongoose.connect("mongodb://localhost:27017/productsEditorDB", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+mongoose.connect("mongodb://localhost:27017/productsEditorDB", { useNewUrlParser: true, useUnifiedTopology: true });
 
 const productSchema = new mongoose.Schema({
   id: String,
@@ -63,8 +64,19 @@ app.get("/products", function(req, res) {
         res.send(allProducts)
       }
     })
-    
 })
+
+app.post("/cogs", function(req, res) {
+  Product.findOne({id: req.body.id}, function(err, product) {
+    if (!err) {
+      console.log("POST '/cogs' called");
+      product.cogs = req.body.cogs
+      product.save()
+    } else {
+      console.log(err);
+    }
+  })
+}) 
 
 const serverPort = 3000
 app.listen(serverPort, function(){
