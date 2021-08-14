@@ -35,12 +35,15 @@
     },
     "extends": [
       "plugin:vue/vue3-essential",
+      "plugin:vue/vue3-recommended",
       "@vue/standard"
     ],
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "vue/no-multiple-template-root": "off"
+    }
   },
   "browserslist": [
     "> 1%",
