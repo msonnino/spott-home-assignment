@@ -2,7 +2,6 @@
   <div class="products-list">
     <div v-for="product in products" :key="product.id">
       <ProductEditor :product="product"/>
-      <br><br><br>
     </div>
   </div>
 </template>
@@ -34,3 +33,10 @@ export default {
 }
 
 </script>
+
+<style scoped>
+.products-list {
+  padding: 0px 200px 0px 200px;
+  text-align: left;
+}
+</style>

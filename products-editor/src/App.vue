@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <div class="main-title">
+    <div class="main-title p-3 bg-dark text-white">
       <h1>Products Dashboard</h1>
     </div>
     <div class="navbar-links">
