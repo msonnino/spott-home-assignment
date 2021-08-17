@@ -13,44 +13,7 @@ app.use(express.json());
 const mongoDB = "mongodb://localhost:27017/productsEditorDB"
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 
-// Import countriesCodes to use in our schema
-const countries = require('./countries.json')
-const countriesCodes =  countries.map(a => a.code)
-
-// Our "Product" schema. Includes validation to all properties. 
-const productSchema = new mongoose.Schema({
-  id: {
-    type: String,
-    required: true,
-  },
-  productName: {
-    type: String,
-    required: true,
-  },
-  cogs: {
-    unitManufacturingCost: {
-      type: Number,
-      min: 0,
-      required: true,
-    },
-    shipmentUnitCost: {
-      type: Number,
-      min: 0,
-      required: true,
-    },
-    monthlyAdvertismentCost: {
-      type: Number,
-      min: 0,
-      required: true,
-    },
-    manufacturingCountry: {
-      type: String,
-      enum: countriesCodes
-    }
-  }
-})
-
-const Product = mongoose.model("Product", productSchema)
+const Product = require('./models/Product.js')
 
 /* We check to see that there's data stored in the DB.
 If there isn't any - we initiate it with the default products */
