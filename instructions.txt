@@ -1,4 +1,7 @@
 From terminal:
-1. Make sure you have a MongoDB service running locally.
+1. Make sure you have a MongoDB service running locally (on port 27017).
 2. Navigate to "server" directory and run "node server.js"
 3. Navigate to "products-editor" directory and run "npm run serve"
+
+Then:
+Open browser and navigate to http://localhost:8080/
